@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Bloqueador de Páginas</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Configuración inicial -->
+  <div id="view-setup" class="view center-view">
+    <div class="card">
+      <h1>Configuración inicial</h1>
+      <p class="subtitle">Crea una contraseña para proteger la configuración del bloqueador. Sin esta contraseña no se podrán quitar sitios bloqueados.</p>
+      <label for="setup-password">Contraseña</label>
+      <input type="password" id="setup-password" placeholder="Mínimo 4 caracteres" />
+      <label for="setup-password-confirm">Confirmar contraseña</label>
+      <input type="password" id="setup-password-confirm" placeholder="Repite la contraseña" />
+      <div class="checkbox-row">
+        <input type="checkbox" id="setup-default-list" checked />
+        <label for="setup-default-list">Bloquear lista predeterminada de sitios para adultos</label>
+      </div>
+      <button class="btn-primary" id="setup-submit">Activar protección</button>
+      <p class="error-text" id="setup-error"></p>
+    </div>
+  </div>
+
+  <!-- Login -->
+  <div id="view-login" class="view center-view">
+    <div class="card">
+      <h1>Bloqueador de Páginas</h1>
+      <p class="subtitle">Introduce la contraseña para gestionar la lista de sitios bloqueados.</p>
+      <label for="login-password">Contraseña</label>
+      <input type="password" id="login-password" placeholder="Contraseña" />
+      <button class="btn-primary" id="login-submit">Entrar</button>
+      <p class="error-text" id="login-error"></p>
+    </div>
+  </div>
+
+  <!-- Panel principal -->
+  <div id="view-dashboard" class="view">
+    <div class="topbar">
+      <h1>Bloqueador de Páginas</h1>
+      <span class="status-pill">Protección activa</span>
+    </div>
+    <div class="content">
+      <div class="panel">
+        <h2>Sitios bloqueados manualmente</h2>
+        <div class="add-row">
+          <input type="text" id="new-site" placeholder="ejemplo.com" />
+          <button class="btn-secondary" id="add-site-btn">Añadir</button>
+        </div>
+        <ul class="site-list" id="site-list"></ul>
+        <p class="error-text" id="dashboard-error"></p>
+      </div>
+      <div class="panel">
+        <h2>Ajustes</h2>
+        <div class="settings-row">
+          <span>Lista predeterminada de sitios para adultos</span>
+          <label class="switch">
+            <input type="checkbox" id="toggle-default-list" />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="settings-row">
+          <span>Iniciar automáticamente con Windows</span>
+          <label class="switch">
+            <input type="checkbox" id="toggle-autostart" />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <p class="hint">El bloqueo actúa a nivel del sistema (archivo hosts de Windows), por lo que funciona en cualquier navegador y sigue activo aunque cierres esta ventana.</p>
+
+        <h2 style="margin-top:20px">Cambiar contraseña</h2>
+        <label for="current-password">Contraseña actual</label>
+        <input type="password" id="current-password" />
+        <label for="new-password">Nueva contraseña</label>
+        <input type="password" id="new-password" />
+        <button class="btn-secondary" id="change-password-btn" style="margin-top:12px">Actualizar contraseña</button>
+        <p class="error-text" id="password-change-msg"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
